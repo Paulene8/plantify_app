@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+  <head>
+    {% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='mainStyle.css') }}">     <!-- link to base.css style sheet -->
+    <title>
+      {% block title %} {{title}} {% endblock %} Page</title>   <!-- placeholder for route title. insert title attribute in route -->
+    {% endblock %}
+  </head>
+
+{% block navigation %}
+  <body>
+<div id="navigation">       <!-- html sectioned by "div" -->
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="/home">Plantify</a>
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">      <!-- bullet points the links -->
+                  <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="/">Home</a>      <!-- href="[route]">[page name]. parameters <li and </li>> -->
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/about_us">About Us</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/subscribe">Subscribe</a>
+                  </li>
+              </ul>
+                <hr>
+    </div>
+    </nav>
+{% endblock %}
+
+</div>
+
+<div id="content">
+  {% block content %}
+    <h1>Welcome to Plantify</h1>    <!-- page header -->
+        <style type="text/css">
+            .important { color: #336699; }
+        </style>        <!-- content style. content below -->
+            <p class="important">
+            We're on a mission to fill homes with plants.
+            Subscribe to the mailing list to receive weekly tips and tricks to keep your plants thriving indoors.
+    <hr>
+ {% endblock %}</div>
+
+<div id="footer">
+  {% block footer %}
+  <h6> &copy; Copyright 2024 by Plantify ltd.</h6>
+
+</div>  <!-- footer content -->
+  </body>
+</html>
+{% endblock %}

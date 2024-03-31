@@ -1,0 +1,16 @@
+{% extends "layout.html" %}   <!-- inheriting layout.html style -->
+{% block title %} {{title}} {% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .important { color: #336699; }
+  </style>
+{% endblock %}
+{% block content %}
+  <h1>Subscribe</h1>
+  <p class="important">
+    We're an online shop for indoor plants. Checkout our <a href="{collection}">plant collection.</a>
+  <br>
+    Subscribe to our mailing list to get tips and tricks to help your plants thrive indoors.
+  <hr>
+{% endblock %}
