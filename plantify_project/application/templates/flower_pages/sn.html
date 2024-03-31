@@ -1,0 +1,25 @@
+{% extends "layout.html" %}   <!-- inheriting layout.html style -->
+{% block title %} {{title}} {% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .important { color: #336699; }
+  </style>
+{% endblock %}
+{% block content %}
+  <p class="important">
+   <p>
+<title>EPIPREMNUM AUREUM</title>
+    <link rel="stylesheet" href="{url_for('static', filename='mainStyle.css')}">
+    </head>
+    <body>
+     <h1>STRELITZIA-NICOLAI </h1>
+        <p>This is Strelitzia Nicolai</p>
+        <img src="/static/STRELITZIA-NICOLAI.png" alt="Strelitzia Nicolai" width="300" height="200">
+        <p>This is Strelitzia Nicolai, this structural evergreen is primarily grown for its handsome (banana-like)
+        foliage, which becomes shredded as it ages. Given time and the right conditions however, it may occasionally
+        produce a blue and white flowerhead too.</p>
+        <span>Page 3</span>
+        <a href='/Epipremnum-Aureum'>Previous</a>
+          <br>
+{% endblock %}

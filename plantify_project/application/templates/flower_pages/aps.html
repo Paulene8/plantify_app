@@ -1,0 +1,21 @@
+{% extends "layout.html" %}   <!-- inheriting layout.html style -->
+{% block title %} {{title}} {% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .important { color: #336699; }
+  </style>
+{% endblock %}
+{% block content %}
+  <p class="important">
+   <p>
+<h1>AGLAONEMA PINK STAR </h1>
+        <p>This is Aglaonema Pink Star</p>
+        <img src="/static/Aglaonema-Pink-Star.png" alt="Aglaonema Pink Star" width="300" height="200">
+        <p>The Aglaonema Pink Star is a gorgeous rare plant that will thrive easily in your home. Tolerant of low light
+        conditions and easy care, they are perfect plants for the beginner but attractive collector plants for more
+        experienced growers.</p>
+        <span>Page 1</span>
+        <a href='/Epipremnum-Aureum'>Next</a>
+          <br>
+{% endblock %}

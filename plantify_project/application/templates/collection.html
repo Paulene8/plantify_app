@@ -1,0 +1,29 @@
+{% extends "layout.html" %}   <!-- inheriting layout.html style -->
+{% block title %} {{title}} {% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .important { color: #336699; }
+  </style>
+{% endblock %}
+{% block content %}
+<h1>Collection</h1>
+  <p class="important">
+  <br>
+</p>
+  <h3>AGLAONEMA PINK STAR</h3>
+  <a href='Aglaonema-Pink-Star'>
+    <img src="/static/Aglaonema-Pink-Star.png" alt="Aglaonema Pink Star" width="300" height="200">
+  </a>
+<br>
+<h3>EPIPREMNUM AUREUM (DEVILS IVY, GOLDEN POTHOS)</h3>
+<a href='/Epipremnum-Aureum'>
+  <img src="/static/Epipremnum-Aureum.png" alt="Epipremnum Aureum" width="300" height="200">
+</a>
+<br>
+<h3>STRELITZIA NICOLAI</h3>
+<a href='/STRELITZIA-NICOLAI'>
+  <img src="/static/STRELITZIA-NICOLAI.png" alt="Strelitzia Nicolai" width="300" height="200">
+</a>
+<br>
+{% endblock %}
