@@ -1,0 +1,14 @@
+{% extends "layout.html" %}   <!-- inheriting layout.html style -->
+{% block title %} {{title}} {% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .important { color: #336699; }
+  </style>
+{% endblock %}
+{% block content %}
+  <h1>Blogposts</h1>
+  <p class="important">
+    [get blog posts from a database]
+  <hr>
+{% endblock %}
