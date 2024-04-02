@@ -11,7 +11,7 @@ app.config['SECRET_KEY'] = SECRET_KEY
 
 @app.route('/')
 @app.route('/home')
-def homePage():
+def homepage():
     return render_template('layout.html', title='Home')
 
 
@@ -40,6 +40,12 @@ def STRELITZIA_NICOLAI():
     return render_template('/flower_pages/sn.html', title='Strelitzia Nicolai')
 
 
+# created a blog post route
+# created the function for the customer blog url
+# printed the initial requests method to check
+# if statement to check if the method is a post, if it is we define the property in the session object called username
+# assign it to the username that we get from the request form
+# print out the session username to confirm that it has been assigned
 @app.route('/login', methods=['GET', 'POST'])
 def customer_login_url():
     print(request.method)
@@ -52,12 +58,12 @@ def customer_login_url():
 # SUPPOSED TO DISPLAY THE HISTORICAL POSTS
 @app.route('/blogposts')
 def blogposts():
-    db = get_blogpost()   # TO DO: CREATE BLOGPOSTDB. COLS: POST ID (p.id), TITLE, USERNAME, POST, DATE (?)
-    posts = db.execute(
-        'SELECT p.id, title, post, date, username'
-        ' ORDER BY created DESC'
-    ).fetchall()
-    return render_template('getblog.html', title='Blogposts')
+    postlist = get_blogpost()
+    # posts = db.execute(
+    #     'SELECT title, post, date, username'
+    #     'ORDER BY created DESC'
+    # ).fetchall()
+    return render_template('getblog.html', title='Blogposts', posts=postlist)
 
 
 @app.route('/submit_post', methods=['GET', 'POST'])
@@ -74,7 +80,7 @@ def submit():
             error = 'Please complete the form in full'
 
         else:
-            blogpost.append({'Username': user_name, 'Title': title, 'Post': post})
+            blogposts.append({'Username': user_name, 'title': title, 'Post': post})
             add_blogpost(user_name, title, post)
             return redirect(url_for('submit'))
 

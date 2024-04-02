@@ -9,6 +9,10 @@
 {% block content %}
   <h1>Blogposts</h1>
   <p class="important">
-    [get blog posts from a database]
-  <hr>
+    test paragraph </p>
+{% for post in posts %}
+    <p>{{post}}</p>
+    <hr>
+{% endfor %}
+
 {% endblock %}
