@@ -1,0 +1,26 @@
+{% extends "layout.html" %}   <!-- inheriting layout.html style -->
+{% block title %} {{title}} {% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .important { color: #336699; }
+  </style>
+{% endblock %}
+{% block content %}
+  <p class="important">
+   <p>
+<title>EPIPREMNUM AUREUM</title>
+    <link rel="stylesheet" href="{url_for('static', filename='mainStyle.css')}">
+    </head>
+    <body>
+    <h1>EPIPREMNUM AUREUM (DEVILS IVY, GOLDEN POTHOS) </h1>
+    <p>This is Epipremnum-Aureum </p>
+    <img src="/static/Epipremnum-Aureum.png" alt="Epipremnum-Aureum" width="300" height="200">
+    <p>Pothos Plants, or Epipremnum Aureum, are native to the jungles of Malaysia and are highly adaptable,
+        glossy-leafed plants with heart-shaped leaves. Epipremnum Aureum or devils Ivy is easy to care for and can grow
+        almost anywhere. In other words, a perfect houseplant for beginners.</p>
+    <span>Page 2</span>
+    <a href='/Aglaonema-Pink-Star'>Previous</a>
+    <a href='/STRELITZIA-NICOLAI'>Next</a>
+    <br>
+{% endblock %}

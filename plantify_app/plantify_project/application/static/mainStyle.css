@@ -1,0 +1,44 @@
+body {
+      background-color: #8FBC8F;    /* Sage green */
+      font: 20px Verdana, sans-serif;
+      line-height: 1.8;
+      color: #556B2F;   /* Dark Olive */
+  }
+  h1    {color: #556B2F;}  /* Sage green */
+  p {font-size: 16px;}
+  .margin {margin-bottom: 25px;}
+  .bg-1 {
+      background-color: #556B2F; /* Dark Olive */
+      color: #556B2F;
+  }
+  .bg-2 {
+      background-color: #6B8E23; /* Light Olive */
+      color: #ffffff;
+  }
+  .bg-3 {
+      background-color: #808000; /* Olive */
+      color: #555555;
+  }
+  .bg-4 {
+      background-color: #2E8B57; /* Sea Green */
+      color: #fff;
+  }
+  .container-fluid {
+      padding-top: 20px;
+      padding-bottom: 20px;
+  }
+  .navbar {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      border: 0;
+      border-radius: 0;
+      margin-bottom: 0;
+      font-size: 12px;
+      letter-spacing: 5px;
+  }
+  .navbar-nav  li a:hover {
+      color: #008080 !important;    /* Teal */
+  }
+    #message {
+      color: red;
+  }
