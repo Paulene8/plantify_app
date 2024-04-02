@@ -14,3 +14,4 @@ select *
 from blogpost;
 
 drop table blogpost
+

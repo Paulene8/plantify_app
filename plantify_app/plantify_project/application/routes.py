@@ -1,4 +1,8 @@
 from flask import Flask, Response, request, render_template, session, url_for
+from plantify_project.application.forms.register_form import RegisterForm
+from plantify_project.application.data_access import add_blogpost, get_blogpost
+from plantify_project.application.forms.register_form import RegisterForm
+from plantify_project.application.data_access import add_blogpost, get_blogpost
 import os
 
 app = Flask(__name__)
@@ -16,25 +20,25 @@ def about_us():
     return render_template('about_us.html', title='About_us')
 
 
-@app.route('/subscribe')
-def subscribe():
-    return render_template('subscribe.html', title='Subscribe')
-
 @app.route('/collection')
 def collection():
     return render_template('collection.html', title='Product Collection')
 
+# INDIVIDUAL PLANT INFO PAGES
 @app.route('/Aglaonema-Pink-Star')
 def AGLAONEMA_PINK_STAR():
     return render_template('/flower_pages/aps.html', title='Aglaonema Pink Star')
+
 
 @app.route('/Epipremnum-Aureum')
 def Epipremnum_Aureum():
     return render_template('/flower_pages/ea.html', title='Epipremnum Aureum')
 
+
 @app.route('/STRELITZIA-NICOLAI')
 def STRELITZIA_NICOLAI():
     return render_template('/flower_pages/sn.html', title='Strelitzia Nicolai')
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def customer_login_url():
@@ -45,33 +49,36 @@ def customer_login_url():
         return render_template('customer_login.html', title='Customer Login')
     return render_template('customer_login.html', title='Customer Login')
 
-# SUGGESTION: ADD A TABLE TO ALLOW A POST REQUEST INTO A DATABASE. COLUMNS: PERSON ID, FIRST NAME, LAST NAME AND EMAIL, PASSWORD
-# SUBSCRIBE PAGE
-# @app.route('/subscribe') #ROUTE TO SUBSCRIBE PAGE
-# def subscribe_url():
-#     home_page = url_for('homepage_url')
-#     about_us = url_for('about_us_url')
-#     collection = url_for('collection_url')
-#     login = url_for('customer_login_url')
-#     admin = url_for('admin_login_url')
-#     return render_template('subscribedemo.html', title='Subscribe')
-
-
-# SUGGESTION: INTEGRATED INTO A DATABASE TO CHECK CREDENTIALS (USERNAME = EMAIL, PASSWORD)
-# SUGGESTION: INTEGRATE TO AN ADMINISTRATOR DATABASE. COLUMNS: PERSON ID, FIRST NAME, LAST NAME, EMAIL ADDRESS PASSWORD
+# SUPPOSED TO DISPLAY THE HISTORICAL POSTS
 @app.route('/blogposts')
 def blogposts():
-    db = get_blogpostdb()   # TO DO: CREATE BLOGPOSTDB. COLS: POST ID (p.id), TITLE, USERNAME, POST, DATE (?)
+    db = get_blogpost()   # TO DO: CREATE BLOGPOSTDB. COLS: POST ID (p.id), TITLE, USERNAME, POST, DATE (?)
     posts = db.execute(
         'SELECT p.id, title, post, date, username'
         ' ORDER BY created DESC'
-    )
+    ).fetchall()
     return render_template('getblog.html', title='Blogposts')
 
 
-# @app.route('/viewposts')
-# def all_posts():
-#     return render_template('getblog2.html', people=people, title='All People')
+@app.route('/submit_post', methods=['GET', 'POST'])
+def submit():
+    error = ""
+    register_form = RegisterForm()
+
+    if request.method == 'POST':
+        user_name = register_form.user_name.data
+        title = register_form.title.data
+        post = register_form.post.data
+
+        if len(user_name) == 0 or len(title) == 0 or len(post) == 0:
+            error = 'Please complete the form in full'
+
+        else:
+            blogpost.append({'Username': user_name, 'Title': title, 'Post': post})
+            add_blogpost(user_name, title, post)
+            return redirect(url_for('submit'))
+
+    return render_template('custom_login.html', form=register_form, title='Submit a Blog Post', message=error)
 
 
 
